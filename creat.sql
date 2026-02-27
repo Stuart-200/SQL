@@ -4,12 +4,12 @@ Create Table employ(
     EmployID Text,
     EmployDepartment Text,
     ProjectName Text,
-    OfferdCoast$ Integer,
-    ActualCoast$ Integer
+    OfferdCoast  Integer,
+    ActualCoast Integer
 
 );
 
-INSERT INTO employ(SerialNo, EmployName, EmployID, EmployDepartment, ProjectName, OfferdCoast$, ActualCoast$) VALUES
+INSERT INTO employ(SerialNo, EmployName, EmployID, EmployDepartment, ProjectName, OfferdCoast, ActualCoast ) VALUES
 ('1', 'John Smith', 'EMP001', 'Engineering', 'Project Alpha', 50000, 48000),
 ('2', 'Emily Johnson', 'EMP002', 'Marketing', 'Project Beta', 65000, 62500),
 ('3', 'Michael Brown', 'EMP003', 'Sales', 'Project Gamma', 72000, 75000),
