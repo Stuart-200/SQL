@@ -1,18 +1,36 @@
-CREATE TABLE emp(
-    Emp_id TEXT PRIMARY KEY,
-    EMP_name TEXT,
-    Department Text,
-    Salary Integer
-);
+DROP TABLE Employee;
+CREATE TABLE
+    IF NOT EXISTS Employee (
+        EMPLOY_ID TEXT PRIMARY KEY,
+        NAME TEXT,
+        DEPARTMENT TEXT,
+        SALARY INTEGER
+    );
 
-INSERT INTO emp(Emp_id, EMP_name, Department, Salary) VALUES
-(1, 'Rahim', 'HR', 40000),
-(2, 'Karim', 'IT', 60000),
-(3, 'Sadia', 'Finance', 55000),
-(4, 'Rita', 'IT', 75000),
-(5, 'Nabila', 'HR', 45000),
-(6, 'Arif', 'Marketing', 50000);
+INSERT INTO
+    Employee (EMPLOY_ID, NAME, DEPARTMENT, SALARY)
+VALUES
+    ('EMP001', 'John Doe', 'Sales', 50000),
+    ('EMP002', 'Jane Smith', 'Marketing', 60000),
+    ('EMP003', 'Bob Johnson', 'IT', 55000),
+    ('EMP004', 'Alice Brown', 'HR', 45000),
+    ('EMP005', 'Charlie Davis', 'Finance', 70000),
+    ('EMP006', 'Eve Wilson', 'Sales', 52000),
+    ('EMP007', 'Frank Miller', 'IT', 58000),
+    ('EMP008', 'Grace Lee', 'Marketing', 62000),
+    ('EMP009', 'Hank Taylor', 'Finance', 75000),
+    ('EMP010', 'Ivy Anderson', 'HR', 48000);
 
-SELECT Sum(Salary) AS Total_Salary FROM emp;
+SELECT DEPARTMENT AS "Department", COUNT(*) AS "Number of Employees"
+FROM Employee
+WHERE DEPARTMENT IN ('IT', 'Sales', 'Marketing','HR')
+GROUP BY DEPARTMENT;
 
-SELECT AVG(Salary) AS Average_Salary FROM emp;
+SELECT DEPARTMENT AS "Department", AVG(SALARY) AS "Average Salary"
+FROM Employee
+WHERE DEPARTMENT IN ('IT', 'Sales', 'Marketing')
+GROUP BY DEPARTMENT;
+
+SELECT NAME AS "Employee Name", SALARY AS "Salary"
+FROM Employee
+WHERE SALARY > 60000;
